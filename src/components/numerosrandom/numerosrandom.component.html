@@ -1,0 +1,28 @@
+<h1>Numeros Random Directiva STYLE</h1>
+<button (click)="generarNumeros()">Generar Numero</button>
+
+<!--PARA ESTILOS INLINE-->
+<ul>
+    <li *ngFor="let num of arrayNumeros" 
+    [style.color]="num % 2 == 0?'green':'red'"
+    
+    >
+        {{num}}
+    </li>
+</ul>
+
+<!--PARA ESTILOS EN CSS A PARTE-->
+<ul>
+    <li *ngFor="let num of arrayNumeros"
+    [class.par]="num%2==0"
+    [class.impar]="num%2!=0" >{{num}}</li>
+</ul>
+<!--OTRO TIPO DE SINTAXIS-->
+<ul>
+    <li *ngFor="let num of arrayNumeros"
+    [ngClass]="{
+        par:num%2==0,
+        impar:num%2!=0
+    }"
+    >{{num}}</li>
+</ul>
